@@ -1,0 +1,40 @@
+/* Additions: team section and dependable CSS-driven filter animation. */
+.mini-drop { opacity: 0; }
+.explorer-visual.is-flowing .mini-water { animation: water-enter 1.8s ease-in-out infinite; }
+.explorer-visual.is-flowing .mini-layer { animation: layer-pulse 1.5s ease-in-out infinite; }
+.explorer-visual.is-flowing .l2 { animation-delay: .15s; }
+.explorer-visual.is-flowing .l3 { animation-delay: .3s; }
+.explorer-visual.is-flowing .l4 { animation-delay: .45s; }
+.explorer-visual.is-flowing .mini-drop { animation: drop-fall 1.8s ease-in infinite; }
+.flow-button[aria-pressed="true"] { background: var(--orange); }
+.explorer-visual .flow-button { top: 26px; bottom: auto; z-index: 2; }
+
+@keyframes water-enter {
+  0%, 100% { height: 25px; opacity: .55; }
+  50% { height: 38px; opacity: 1; }
+}
+@keyframes layer-pulse {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.16); }
+}
+@keyframes drop-fall {
+  0% { transform: rotate(45deg) translate(0, -5px); opacity: 0; }
+  18% { opacity: 1; }
+  72% { opacity: 1; }
+  100% { transform: rotate(45deg) translate(48px, 48px); opacity: 0; }
+}
+
+.team { padding: 105px max(32px, calc((100% - 1176px) / 2)); display: grid; grid-template-columns: .8fr 1.2fr; gap: 100px; background: #f3f0e6; }
+.team-heading h2 { font-family: Fraunces, serif; font-size: 62px; letter-spacing: -.05em; line-height: 1; margin: 0; }
+.team-heading > p:last-child { max-width: 330px; color: #5c7168; margin-top: 20px; }
+.team-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); columns: 2; column-gap: 38px; }
+.team-list li { break-inside: avoid; padding: 17px 0; border-bottom: 1px solid var(--line); font-weight: 600; font-size: 14px; }
+.team-list span { display: inline-block; width: 30px; color: var(--orange); font-family: Fraunces, serif; }
+
+@media (max-width: 760px) {
+  .team { display: block; padding: 70px 24px; }
+  .team-heading { margin-bottom: 42px; }
+  .team-heading h2 { font-size: 50px; }
+  .team-list { columns: 1; }
+  .explorer-visual .flow-button { top: 20px; }
+}
